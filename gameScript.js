@@ -46,5 +46,19 @@ function game() {
                 console.log("I'm going to honest here, I don't know why I'm here.")
         }
     }
+    console.log(pScore, cScore);
+    resultDisplay(pScore, cScore);
+}
+
+function resultDisplay(player, computer) {
     
+    if (player > computer) {
+        console.log("ggs to player.")
+
+    } else if (computer > player) {
+        console.log("ggs to computer.")
+
+    } else {
+        console.log("It's a draw. Stand down.")
+    }
 }
