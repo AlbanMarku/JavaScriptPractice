@@ -22,13 +22,16 @@ function playRound(playerInput, computerInput) { // Determines winner by compari
     }
 }
 
-function game() {
+function game() { // Loops through selected inputs and adds the score. The calls results to show winner.
 
     let pScore = 0;
     let cScore = 0;
 
     for (let i = 0; i < 5; i++) {
-        let results = playRound("Rock", computerPlay());
+        let choice = prompt("Your move.")
+        choice = choice.charAt(0).toUpperCase() + choice.slice(1).toLowerCase();
+
+        let results = playRound(choice, computerPlay());
         
         switch (results) {
             case "win":
@@ -50,7 +53,7 @@ function game() {
     resultDisplay(pScore, cScore);
 }
 
-function resultDisplay(player, computer) {
+function resultDisplay(player, computer) { // Compares passed score and shows winner.
     
     if (player > computer) {
         console.log("ggs to player.")
@@ -62,3 +65,5 @@ function resultDisplay(player, computer) {
         console.log("It's a draw. Stand down.")
     }
 }
+
+game();
