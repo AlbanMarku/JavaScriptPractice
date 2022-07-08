@@ -27,7 +27,8 @@ header {
 
 .displayScore {
     display: flex;
-    justify-content: space-evenly;
+    justify-content: center;
+    gap: 0px 66px;
     margin: auto 0px;
 }
 
@@ -39,12 +40,33 @@ header {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    border-radius: 10px;
 }
 
 .buttonArea {
     display: flex;
     justify-content: center;
-    gap: 0px 60px;
+    gap: 0px 66px;
     background-color: rgb(41, 44, 56);
     padding: 20px 0px;
+}
+
+.optionBtn {
+    padding: 50px;
+    font-size: 50px;
+    background-color: rgb(94, 100, 124);
+    border-style: none;
+    border-radius: 10px;
+    color: white;
+    transition-duration: 0.4s;
+    cursor: pointer;
+}
+
+.optionBtn:hover {
+    color: rgb(5, 197, 197);
+    background-color: rgb(65, 69, 85);
+}
+
+.clicker {
+    border: 10px solid red;
 }
