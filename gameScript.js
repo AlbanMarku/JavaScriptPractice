@@ -4,6 +4,8 @@ const pBox = document.querySelector("#player");
 const cBox = document.querySelector("#computer");
 const scoreTitle = document.querySelector("#scoreTitle");
 const infoScore = document.querySelector("#infoScore");
+const scoreRefArea = document.querySelector(".descArea");
+const winnerDiv = document.createElement("h1");
 
 let pScore = 0;
 let cScore = 0;
@@ -41,37 +43,6 @@ function playRound(playerInput, computerInput) { // Determines winner by compari
     }
 }
 
-// function game() { // Loops through selected inputs and adds the score. The calls results to show winner.
-
-//     let pScore = 0;
-//     let cScore = 0;
-
-//     for (let i = 0; i < 5; i++) {
-//         let choice = prompt("Your move.")
-//         choice = choice.charAt(0).toUpperCase() + choice.slice(1).toLowerCase();
-
-//         let results = playRound(choice, computerPlay());
-        
-//         switch (results) {
-//             case "win":
-//                 pScore++;
-//                 console.log("Player won that round.")
-//                 break;
-//             case "lose":
-//                 cScore++;
-//                 console.log("Computer won that round.")
-//                 break;
-//             case "draw":
-//                 console.log("Nobody won that round.")
-//                 break;
-//             default:
-//                 console.log("I'm going to honest here, I don't know why I'm here.")
-//         }
-//     }
-//     console.log(pScore, cScore);
-//     resultDisplay(pScore, cScore);
-// }
-
 function resultDisplay(player, computer) { // Compares passed score and shows winner.
     
     if (player > computer) {
@@ -99,3 +70,7 @@ butt.forEach(element => {
 });
 
 // game();
+
+winnerDiv.textContent = "winner";
+winnerDiv.classList.add("winnerText");
+scoreRefArea.appendChild(winnerDiv);
