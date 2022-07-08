@@ -4,6 +4,7 @@
     font-family: 'Roboto', sans-serif;
   }
 
+
 header {
     background-color: rgb(41, 44, 56);
     color: white;
@@ -15,7 +16,8 @@ header {
     background-color: rgb(94, 100, 124);
     display: flex;
     flex-direction: column;
-    text-align: center;
+    text-align: center; 
+    height: 500px;
 }
 
 .descArea {
@@ -23,9 +25,9 @@ header {
 }
 
 .displayScore {
-    background-color: red;
     display: flex;
     justify-content: space-evenly;
+    margin: auto 0px;
 }
 
 .scoreBox {
@@ -35,4 +37,11 @@ header {
     display: flex;
     flex-direction: column;
     justify-content: center;
+}
+
+.buttonArea {
+    display: flex;
+    justify-content: space-evenly;
+    background-color: rgb(41, 44, 56);
+    padding: 20px 0px;
 }
