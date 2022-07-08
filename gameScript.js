@@ -88,6 +88,13 @@ function resultDisplay(player, computer) { // Compares passed score and shows wi
 butt.forEach(element => { //Returns button name.
     element.addEventListener("click", () => {
         playRound(element.textContent, computerPlay());
+        element.classList.add("clicker");
+    });
+});
+
+butt.forEach(element => {
+    element.addEventListener("transitionend", () => {
+        element.classList.remove("clicker");
     });
 });
 

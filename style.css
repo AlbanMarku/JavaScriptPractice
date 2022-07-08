@@ -58,8 +58,10 @@ header {
     border-style: none;
     border-radius: 10px;
     color: white;
-    transition-duration: 0.4s;
+    transition-duration: 0.09s;
     cursor: pointer;
+    border: 10px solid rgb(94, 100, 124);
+
 }
 
 .optionBtn:hover {
@@ -68,5 +70,7 @@ header {
 }
 
 .clicker {
-    border: 10px solid red;
+    border: 10px solid rgb(5, 197, 197);
+    transition-duration: 0.09s;
+    
 }
