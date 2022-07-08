@@ -2,6 +2,8 @@ const itemSelect = ["Rock", "Paper", "Scissors"];
 const butt = document.querySelectorAll(".optionBtn");
 const pBox = document.querySelector("#player");
 const cBox = document.querySelector("#computer");
+const scoreTitle = document.querySelector("#scoreTitle");
+const infoScore = document.querySelector("#infoScore");
 
 let pScore = 0;
 let cScore = 0;
@@ -19,16 +21,22 @@ function playRound(playerInput, computerInput) { // Determines winner by compari
         console.log("Player wins!");
         pScore++;
         pBox.textContent = pScore;
+        scoreTitle.textContent = "Player round win!"
+        infoScore.textContent = `${playerInput} wins against ${computerInput}`;
         return "win"
 
     } else if (playerInput === computerInput) {
         console.log("It's a draw. Stand down.");
+        scoreTitle.textContent = "Draw round."
+        infoScore.textContent = `${computerInput} was chosen by both players`;
         return "draw"
 
     } else {
         console.log("Player loses.");
         cScore++;
         cBox.textContent = cScore;
+        scoreTitle.textContent = "Computer round win!"
+        infoScore.textContent = `${playerInput} is beaten by ${computerInput}`;
         return "lose"
     }
 }
