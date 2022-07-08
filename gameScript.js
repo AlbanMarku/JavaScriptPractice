@@ -66,4 +66,4 @@ function resultDisplay(player, computer) { // Compares passed score and shows wi
     }
 }
 
-game();
+// game();
