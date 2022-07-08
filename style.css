@@ -1,0 +1,38 @@
+* {
+    box-sizing: border-box;
+    margin: 0px;
+    font-family: 'Roboto', sans-serif;
+  }
+
+header {
+    background-color: rgb(41, 44, 56);
+    color: white;
+    padding: 20px 0px;
+    text-align: center;
+}
+
+.scoreArea {
+    background-color: rgb(94, 100, 124);
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+.descArea {
+    padding: 20px 0px;
+}
+
+.displayScore {
+    background-color: red;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.scoreBox {
+    background-color: blue;
+    min-width: 100px;
+    min-height: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
