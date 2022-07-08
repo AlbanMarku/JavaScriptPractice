@@ -43,7 +43,8 @@ header {
 
 .buttonArea {
     display: flex;
-    justify-content: space-evenly;
+    justify-content: center;
+    gap: 0px 60px;
     background-color: rgb(41, 44, 56);
     padding: 20px 0px;
 }

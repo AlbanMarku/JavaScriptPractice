@@ -1,23 +1,34 @@
+const itemSelect = ["Rock", "Paper", "Scissors"];
+const butt = document.querySelectorAll(".optionBtn");
+const pBox = document.querySelector("#player");
+const cBox = document.querySelector("#computer");
+
+let pScore = 0;
+let cScore = 0;
+
+
 function computerPlay () { // Get random item from array list.
 
-    const itemSelect = ["Rock", "Paper", "Scissors"];
     const randomChoice = Math.floor(Math.random() * itemSelect.length);
 
     return itemSelect[randomChoice]
 }
 
 function playRound(playerInput, computerInput) { // Determines winner by comparing pInput to cInput.
-
     if ((playerInput === "Rock" && computerInput === "Scissors") || (playerInput === "Paper" && computerInput === "Rock") || (playerInput === "Scissors" && computerInput === "Paper")) {
         console.log("Player wins!");
+        pScore++;
+        pBox.textContent = pScore;
         return "win"
 
     } else if (playerInput === computerInput) {
-        console.log("It's a draw. Stand down.")
+        console.log("It's a draw. Stand down.");
         return "draw"
 
     } else {
-        console.log("Player loses.")
+        console.log("Player loses.");
+        cScore++;
+        cBox.textContent = cScore;
         return "lose"
     }
 }
@@ -66,11 +77,9 @@ function resultDisplay(player, computer) { // Compares passed score and shows wi
     }
 }
 
-const butt = document.querySelectorAll(".optionBtn");
-
 butt.forEach(element => { //Returns button name.
-    element.addEventListener("click", (e) => {
-        console.log(element.textContent);
+    element.addEventListener("click", () => {
+        playRound(element.textContent, computerPlay());
     });
 });
 
