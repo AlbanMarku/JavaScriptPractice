@@ -22,6 +22,7 @@ header {
 
 .descArea {
     padding: 20px 0px;
+    color: white;
 }
 
 .displayScore {
@@ -31,7 +32,8 @@ header {
 }
 
 .scoreBox {
-    background-color: blue;
+    background-color: rgb(41, 44, 56);
+    color: white;
     min-width: 100px;
     min-height: 100px;
     display: flex;

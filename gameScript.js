@@ -66,4 +66,12 @@ function resultDisplay(player, computer) { // Compares passed score and shows wi
     }
 }
 
+const butt = document.querySelectorAll(".optionBtn");
+
+butt.forEach(element => { //Returns button name.
+    element.addEventListener("click", (e) => {
+        console.log(element.textContent);
+    });
+});
+
 // game();
