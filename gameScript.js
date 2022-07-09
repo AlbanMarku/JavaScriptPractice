@@ -6,6 +6,9 @@ const scoreTitle = document.querySelector("#scoreTitle");
 const infoScore = document.querySelector("#infoScore");
 const scoreRefArea = document.querySelector(".descArea");
 const winnerDiv = document.createElement("h1");
+const replayBox = document.createElement("button");
+const displayScoreArea = document.querySelector(".scoreArea");
+
 
 let pScore = 0;
 let cScore = 0;
@@ -25,7 +28,16 @@ function playRound(playerInput, computerInput) { // Determines winner by compari
         pBox.textContent = pScore;
         scoreTitle.textContent = "Player round win!"
         infoScore.textContent = `${playerInput} wins against ${computerInput}`;
-        return "win"
+        if (pScore === 5) {
+            winnerDiv.textContent = "Winner!";
+            winnerDiv.classList.add("winnerText");
+            scoreRefArea.appendChild(winnerDiv);
+            disableButton(true);
+            playAgain();
+        } else {
+            return "more"
+        }
+        
 
     } else if (playerInput === computerInput) {
         console.log("It's a draw. Stand down.");
@@ -39,22 +51,18 @@ function playRound(playerInput, computerInput) { // Determines winner by compari
         cBox.textContent = cScore;
         scoreTitle.textContent = "Computer round win!"
         infoScore.textContent = `${playerInput} is beaten by ${computerInput}`;
-        return "lose"
+        if (cScore === 5) {
+            winnerDiv.textContent = "Loser";
+            winnerDiv.classList.add("winnerText");
+            scoreRefArea.appendChild(winnerDiv);
+            disableButton(true);
+            playAgain();
+        } else {
+            return "more"
+        }
     }
 }
 
-function resultDisplay(player, computer) { // Compares passed score and shows winner.
-    
-    if (player > computer) {
-        console.log("ggs to player.")
-
-    } else if (computer > player) {
-        console.log("ggs to computer.")
-
-    } else {
-        console.log("It's a draw. Stand down.")
-    }
-}
 
 butt.forEach(element => { //Returns button name.
     element.addEventListener("click", () => {
@@ -69,8 +77,37 @@ butt.forEach(element => {
     });
 });
 
-// game();
+replayBox.addEventListener("transitionend", (e) => {
+    if (e.propertyName == "border-left-color") {
+        replayBox.classList.remove("clicker");
+        replayBox.remove();
+    }
+});
 
-winnerDiv.textContent = "winner";
-winnerDiv.classList.add("winnerText");
-scoreRefArea.appendChild(winnerDiv);
+function disableButton(toggler) {
+    butt.forEach(element => { //Returns button name.
+        if (toggler == true) {
+            element.disabled =true;
+        } else {
+            element.disabled = false;
+        }
+    });
+}
+
+function playAgain() {
+    replayBox.textContent = "Play again?";
+    replayBox.classList.add("againBtn");
+    displayScoreArea.appendChild(replayBox);
+}
+
+replayBox.addEventListener("click", () => {
+    pScore = 0;
+    cScore = 0;
+    pBox.textContent = pScore;
+    cBox.textContent = cScore;
+    disableButton(false);
+    replayBox.classList.add("clicker");
+    winnerDiv.textContent = "";
+    scoreTitle.textContent = "Rematch!"
+        infoScore.textContent = "Let's go!";
+});

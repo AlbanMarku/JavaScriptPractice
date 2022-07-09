@@ -21,6 +21,7 @@ header {
     flex-direction: column;
     text-align: center; 
     height: 500px;
+    align-items: center;
 }
 
 .descArea {
@@ -67,19 +68,15 @@ header {
 
 }
 
-.optionBtn:hover {
+.optionBtn:hover{
     color: rgb(5, 197, 197);
     background-color: rgb(65, 69, 85);
 }
 
-.clicker {
-    border: 10px solid rgb(5, 197, 197);
-    transition-duration: 0.09s;
-    
-}
+
 
 .winnerText {
-    color: red;
+    color: rgb(5, 197, 197);
 }
 
 .footerArea {
@@ -116,4 +113,29 @@ img:hover {
     80% { transform: translate(-1px, -1px) rotate(1deg); }
     90% { transform: translate(1px, 2px) rotate(0deg); }
     100% { transform: translate(1px, -2px) rotate(-1deg); }
+}
+
+.againBtn {
+    padding: 20px;
+    font-size: 20px;
+    background-color: rgb(65, 69, 85);
+    border-style: none;
+    border-radius: 10px;
+    color: white;
+    transition-duration: 0.09s;
+    cursor: pointer;
+    border: 10px solid rgb(65, 69, 85);
+    margin-bottom: 20px;
+    transition-duration: 0.09s;
+}
+
+.againBtn:hover {
+    color: rgb(5, 197, 197);
+    background-color: rgb(49, 53, 65);
+}
+
+.clicker {
+    border: 10px solid rgb(5, 197, 197);
+    transition-duration: 0.09s;
+    
 }
