@@ -6,6 +6,9 @@ const scoreTitle = document.querySelector("#scoreTitle");
 const infoScore = document.querySelector("#infoScore");
 const scoreRefArea = document.querySelector(".descArea");
 const winnerDiv = document.createElement("h1");
+const replayBox = document.createElement("button");
+const displayScoreArea = document.querySelector(".scoreArea");
+
 
 let pScore = 0;
 let cScore = 0;
@@ -29,7 +32,8 @@ function playRound(playerInput, computerInput) { // Determines winner by compari
             winnerDiv.textContent = "Winner!";
             winnerDiv.classList.add("winnerText");
             scoreRefArea.appendChild(winnerDiv);
-            disableButton();
+            disableButton(true);
+            playAgain();
         } else {
             return "more"
         }
@@ -48,10 +52,11 @@ function playRound(playerInput, computerInput) { // Determines winner by compari
         scoreTitle.textContent = "Computer round win!"
         infoScore.textContent = `${playerInput} is beaten by ${computerInput}`;
         if (cScore === 5) {
-            winnerDiv.textContent = "Loser.";
+            winnerDiv.textContent = "Loser";
             winnerDiv.classList.add("winnerText");
             scoreRefArea.appendChild(winnerDiv);
-            disableButton();
+            disableButton(true);
+            playAgain();
         } else {
             return "more"
         }
@@ -72,10 +77,37 @@ butt.forEach(element => {
     });
 });
 
-function disableButton() {
+replayBox.addEventListener("transitionend", (e) => {
+    if (e.propertyName == "border-left-color") {
+        replayBox.classList.remove("clicker");
+        replayBox.remove();
+    }
+});
+
+function disableButton(toggler) {
     butt.forEach(element => { //Returns button name.
-        element.disabled =true;
+        if (toggler == true) {
+            element.disabled =true;
+        } else {
+            element.disabled = false;
+        }
     });
 }
 
-// game();
+function playAgain() {
+    replayBox.textContent = "Play again?";
+    replayBox.classList.add("againBtn");
+    displayScoreArea.appendChild(replayBox);
+}
+
+replayBox.addEventListener("click", () => {
+    pScore = 0;
+    cScore = 0;
+    pBox.textContent = pScore;
+    cBox.textContent = cScore;
+    disableButton(false);
+    replayBox.classList.add("clicker");
+    winnerDiv.textContent = "";
+    scoreTitle.textContent = "Rematch!"
+        infoScore.textContent = "Let's go!";
+});
