@@ -65,6 +65,7 @@ header {
     transition-duration: 0.09s;
     cursor: pointer;
     border: 10px solid rgb(94, 100, 124);
+    width: 300px;
 
 }
 
